@@ -78,11 +78,23 @@ class _QuizPageState extends State<QuizPage> {
               ),
               child: Text('False'),
               onPressed: () {
-                // The user picked false.
+                //The user picked false.
               },
             ),
           ),
         ),
+        Row(
+          children: <Widget>[
+            Icon(
+              Icons.check,
+              color: Colors.green,
+            ),
+            Icon(
+              Icons.close,
+              color: Colors.red,
+            ),
+          ],
+        )
       ],
     );
   }
