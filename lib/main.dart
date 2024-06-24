@@ -82,7 +82,7 @@ class _QuizPageState extends State<QuizPage> {
                 if (correctAnswers == true) {
                   print("r");
                 } else {
-                  print("s");
+                  print("w");
                 }
                 setState(() {
                   scoreKeeper.add(
@@ -111,7 +111,7 @@ class _QuizPageState extends State<QuizPage> {
                 if (correctAnswers == false) {
                   print("r");
                 } else {
-                  print("s");
+                  print("w");
                 }
                 setState(() {
                   scoreKeeper.add(
