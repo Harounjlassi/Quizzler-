@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:quizzler/Question.dart';
 
@@ -44,14 +46,16 @@ class _QuizPageState extends State<QuizPage> {
   ];
   List<bool> answers = [false, true, true];
   int quetionNumber = 0;
-  Question q1 = Question(
-      questionText: 'You can lead a cow down stairs but not up stairs.',
-      questionAnswer: false);
-  Question q2 = Question(
-      questionText: 'Approximately one quarter of human bones are in the feet.',
-      questionAnswer: true);
-  Question q3 =
-      Question(questionText: 'A slug\'s blood is green.', questionAnswer: true);
+  List<Question> QuestionBank = [
+    Question(
+        questionText: 'You can lead a cow down stairs but not up stairs.',
+        questionAnswer: false),
+    Question(
+        questionText:
+            'Approximately one quarter of human bones are in the feet.',
+        questionAnswer: true),
+    Question(questionText: 'A slug\'s blood is green.', questionAnswer: true)
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
