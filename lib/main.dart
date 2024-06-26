@@ -29,16 +29,26 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Widget> scoreKeeper = [
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
-  ];
+  List<Widget> scoreKeeper = [];
+  void checkAnswer(bool userPickedAnswer) {
+    bool correctAnswers = QuestionBank[quetionNumber].questionAnswer;
+    Icon ic;
+    if (userPickedAnswer == correctAnswers) {
+      ic = Icon(Icons.check, color: Colors.green);
+    } else {
+      ic = Icon(
+        Icons.close,
+        color: Colors.red,
+      );
+    }
+    setState(() {
+      scoreKeeper.add(
+        ic,
+      );
+      quetionNumber++;
+    });
+  }
+
   List<String> question = [
     'You can lead a cow down stairs but not up stairs.',
     'Approximately one quarter of human bones are in the feet.',
@@ -91,19 +101,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               child: Text('True'),
               onPressed: () {
-                bool correctAnswers =
-                    QuestionBank[quetionNumber].questionAnswer;
-                if (correctAnswers == true) {
-                  print("r");
-                } else {
-                  print("w");
-                }
-                setState(() {
-                  scoreKeeper.add(
-                    Icon(Icons.check, color: Colors.green),
-                  );
-                  quetionNumber++;
-                });
+                checkAnswer(true);
               },
             ),
           ),
@@ -121,19 +119,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               child: Text('False'),
               onPressed: () {
-                bool correctAnswers =
-                    QuestionBank[quetionNumber].questionAnswer;
-                if (correctAnswers == false) {
-                  print("r");
-                } else {
-                  print("w");
-                }
-                setState(() {
-                  scoreKeeper.add(
-                    Icon(Icons.close, color: Colors.red),
-                  );
-                  quetionNumber++;
-                });
+                checkAnswer(false);
               },
             ),
           ),

@@ -1,3 +1,5 @@
+import 'package:quizzler/Question.dart';
+
 class QuizBrain {
   int quetionNumber = 0;
   List<Question> QuestionBank = [
