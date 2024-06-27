@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:quizzler/Question.dart';
 import 'package:quizzler/QuizBrain.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 QuizBrain qb = new QuizBrain();
 

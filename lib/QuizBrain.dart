@@ -4,7 +4,7 @@ class QuizBrain {
   int _questionNumber = 0;
 
   List<Question> _QuestionBank = [
-    Question(questionText: "A slug's blood is green.", questionAnswer: true),
+    Question(questionText: "A slug's blood is green.", questionAnswer: false),
     Question(
         questionText:
             "Approximately one quarter of human bones are in the feet.",
@@ -49,7 +49,7 @@ class QuizBrain {
   void nextQuestion() {
     if (_questionNumber < _QuestionBank.length - 1) {
       _questionNumber++;
-    }
+    } else {}
   }
 
   bool getCorrectAnswer() {
