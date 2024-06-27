@@ -2,6 +2,9 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:quizzler/Question.dart';
+import 'package:quizzler/QuizBrain.dart';
+
+QuizBrain qb = new QuizBrain();
 
 void main() => runApp(Quizzler());
 
@@ -29,9 +32,11 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  //List<Question> QuestionBank = qb.QuestionBank;
+
   List<Widget> scoreKeeper = [];
   void checkAnswer(bool userPickedAnswer) {
-    bool correctAnswers = QuestionBank[quetionNumber].questionAnswer;
+    bool correctAnswers = qb.getCorrectAnswer();
     Icon ic;
     if (userPickedAnswer == correctAnswers) {
       ic = Icon(Icons.check, color: Colors.green);
@@ -45,7 +50,7 @@ class _QuizPageState extends State<QuizPage> {
       scoreKeeper.add(
         ic,
       );
-      quetionNumber++;
+      qb.nextQuestion();
     });
   }
 
@@ -55,8 +60,7 @@ class _QuizPageState extends State<QuizPage> {
     'A slug\'s blood is green.'
   ];
   List<bool> answers = [false, true, true];
-  int quetionNumber = 0;
-  List<Question> QuestionBank = [
+  List<Question> QuestionBan = [
     Question(
         questionText: 'You can lead a cow down stairs but not up stairs.',
         questionAnswer: false),
@@ -66,6 +70,7 @@ class _QuizPageState extends State<QuizPage> {
         questionAnswer: true),
     Question(questionText: 'A slug\'s blood is green.', questionAnswer: true)
   ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -78,7 +83,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                QuestionBank[quetionNumber].questionText,
+                qb.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
