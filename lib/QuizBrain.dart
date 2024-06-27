@@ -2,6 +2,13 @@ import 'package:quizzler/Question.dart';
 
 class QuizBrain {
   int _questionNumber = 0;
+  int getQuestionNumber() {
+    return _questionNumber;
+  }
+
+  int getBankLength() {
+    return _QuestionBank.length;
+  }
 
   List<Question> _QuestionBank = [
     Question(questionText: "A slug's blood is green.", questionAnswer: false),
@@ -49,7 +56,7 @@ class QuizBrain {
   void nextQuestion() {
     if (_questionNumber < _QuestionBank.length - 1) {
       _questionNumber++;
-    } else {}
+    }
   }
 
   bool getCorrectAnswer() {

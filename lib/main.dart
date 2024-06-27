@@ -52,6 +52,26 @@ class _QuizPageState extends State<QuizPage> {
         ic,
       );
       qb.nextQuestion();
+      int r = qb.getQuestionNumber();
+      print(r);
+      if (r == qb.getBankLength() - 1) {
+        Alert(
+          context: context,
+          type: AlertType.error,
+          title: "RFLUTTER ALERT",
+          desc: "END OF QUESTIONS.",
+          buttons: [
+            DialogButton(
+              child: Text(
+                "OK",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              onPressed: () => Navigator.pop(context),
+              width: 120,
+            )
+          ],
+        ).show();
+      }
     });
   }
 
